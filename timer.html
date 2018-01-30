@@ -1,0 +1,55 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+<div>
+
+
+</div>
+
+
+
+<div id= "timers" >
+        <form action= "" onsubmit= "focusSet(); return false" >
+            Focus: <input type="number" id="focusInput">
+            <br>
+            <input type="submit" value="Enter">
+</form>
+</div>
+
+<div>
+        <br>
+        Break: <select onchange="breakSet(); return false" type="select" id="breakInput">
+            <option selected disabled hidden></option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+         </select>
+</div>
+
+
+<br>
+<br>
+
+
+<div id="focusDiv"></div>
+<div id="breakDiv"></div>
+
+<br>
+<br>
+<div>
+        <button onclick="focusTimer()">Start Focus</button>        
+</div>
+<br>
+
+
+<div><button id="strainedFocus" onclick ="strainedFocus()">Strained Focus</button></div>
+
+<script src="timer.js"></script>  
+</body>
+</html>
