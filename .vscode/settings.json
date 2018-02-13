@@ -1,0 +1,3 @@
+{
+    "python.pythonPath": "${workspaceFolder}/cap_venv/bin/python"
+}
