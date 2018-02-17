@@ -4,6 +4,9 @@ from django.utils import timezone
 from django.http import JsonResponse
 import datetime
 import time
+from django.contrib.auth.decorators import login_required
+
+@login_required(redirect_field_name='login')
 def timer(request):
     return render(request, 'timer/timer.html')
 

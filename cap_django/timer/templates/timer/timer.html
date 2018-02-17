@@ -47,12 +47,16 @@
 <br>
 <br>
 <div>
-        <button onclick="focusTimer()">Start Focus</button>        
+        <button id="focusTimer">Start Focus</button>        
 </div>
 <br>
 
 
 <div><button id="strainedFocus">Strained Focus</button></div>
+
+
+<div class='circles' id="circles"></div>
+
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 <script>
@@ -85,6 +89,10 @@ $.ajaxSetup({
     }
 });
 </script>
+<script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
+
 <script src="{% static 'timer/js/timer.js' %}"></script>  
+
+
 </body>
 </html>

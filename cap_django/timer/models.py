@@ -19,12 +19,7 @@ class StrainedFocus(models.Model):
 # # Create your models here.
 
 
-# class Labored_Focus(models.Model):
-#     time = models.DateTimeField('recorded time')
-
-#     def __str__(self):
-#         return self.time
-     
+ 
 
 
 
