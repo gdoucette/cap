@@ -1,36 +1,53 @@
 
 var focusInput;
 var breakInput;
-var focusCount = 0;
+var count = 0;
 var id;
-var minTomil = 60000;
+//actual conversion
+// var minTomil = 60000;
+//test conversion
+var minTomil = 600;
 var running = false;
 var circleDiv = document.getElementById('circles')
-var startButton = document.getElementById('focusTimer')
-//NEED TO ADD 0 to timer input conversions below!!!
+var startButton = document.getElementById('focusStart')
 
+var timer1 = document.getElementById('timer1')
+var timer2 = document.getElementById('timer2')
+var timer3 = document.getElementById('timer3')
+var timer4 = document.getElementById('timer4')
+var timerDiv = document.getElementById('timerDiv')
+var timerSet = document.getElementById('timerSet')
+var color1 = '#A3AF8C'
+var color2 = '#4DA1A9'
+var color3 = '#2E5077'
+var color4 = '#611C35'
+
+
+var timerCircles = [];
 function focusSet() {
 
     focusInput = parseInt(document.getElementById('focusInput').value);
-    document.getElementById("focusDiv").innerHTML = "Focus Time: " + focusInput + " minutes";
+    //document.getElementById("focusDiv").innerHTML = "Focus Time: " + focusInput + " minutes";
     focusInput = focusInput * minTomil;
     console.log(focusInput);
 }
-document.querySelector('#focusSet').addEventListener('click', function(){
-    event.preventDefault();
-    focusSet()
-})
+
+
+// document.querySelector('#focusSet').addEventListener('input', function(){
+//     event.preventDefault();
+//     focusSet()
+// })
 
 function breakSet() {
 
     breakInput = parseInt(document.getElementById('breakInput').value);
-    document.getElementById("breakDiv").innerHTML ="Break Time: " + breakInput + " minutes";
+    //document.getElementById("breakDiv").innerHTML ="Break Time: " + breakInput + " minutes";
     breakInput = breakInput * minTomil;
     console.log(breakInput);
 } 
 
 
-document.querySelector('#focusTimer').addEventListener('click', function(){
+document.querySelector('#focusStart').addEventListener('click', function(){
     event.preventDefault();
     focusTimer();
 });
@@ -38,18 +55,26 @@ document.querySelector('#focusTimer').addEventListener('click', function(){
 function focusTimer() {
     if (running == false){
 
-    if (focusCount == 0){
-        fadeIn(circleDiv);
+    if (count == 0){
+        fadeIn(timerDiv);
+        fadeIn(timer1);
+        fadeIn(timer2);
+        fadeIn(timer3);
+        fadeIn(timer4);
+        console.log('fade in timer');
     
     }
+    
     running = true;
     fadeOutfast(startButton);
+    fadeOutfast(timerSet);
+
     console.log(running);
     setTimeout(focusEnd, focusInput); 
-    console.log('focustimer!');
-    focusCount += 1; 
+    
+    count += 1; 
     draw();  
-    console.log('timer'+focusCount)
+    console.log('timer'+count)
     $.ajax({
         url: "/timer/start_timer/", 
         type: 'post',
@@ -76,11 +101,13 @@ function breakTimer() {
 
 
 function longBreakTimer() {
-    fadeOut(circleDiv);
-    setTimeout(fadeInstart, 4000);
-    setTimeout(clearBox, 4000);
+    fadeOut(timerDiv);
+    setTimeout(fadeIntimerSet, 3500);
+    setTimeout(fadeInstart, 3800);
+    setTimeout(clear, 4000);
     console.log('Long breaktimer!');
-    focusCount = 0;
+    count = 0;
+    console.log(count);
 }
 
 function focusEnd() {
@@ -97,7 +124,7 @@ function focusEnd() {
         }
     })
     confirm("Break Time\nClick to Start Break Time");
-    if (focusCount == 4) {
+    if (count == 4) {
         
         longBreakTimer();
         }
@@ -136,24 +163,52 @@ function strainedFocus(){
     }
 }
 
-function clearBox() {
-
-    document.getElementById('circles').innerHTML = "";
+function clear() {
+    timerCircles.forEach(function(ob, i){
+        ob.destroy();
+      })
+      timerCircles = [];
+    // document.getElementById('timerDiv').innerHTML = '<div class="container" id="timer4"> <div class="container" id="timer3"> <div class="container" id="timer2"> <div class="container" id="timer1"> </div> </div> </div> </div>';
+    // document.getElementById('timer3').innerHTML = "";
+    // document.getElementById('timer4').innerHTML = "";
 }
 
-function draw() {
-    console.log('draw')
-    var circle = new ProgressBar.Circle('#circles', {
-        strokeWidth: 10,
-        color: '#FCB03C',
-        duration: focusInput,
-        easing: 'linear'
-    });
-  
-    circle.animate(1);
-    console.log('draw' + focusCount);
-  };
 
+
+  function draw(divTodraw) {
+    
+    console.log(count);
+    if (count == 1) {
+      divTodraw = timer1
+      color = color1
+    }
+  
+    if (count == 2) {
+      divTodraw = timer2
+      color = color2
+    }
+  
+    if (count == 3) {
+      divTodraw = timer3
+      color = color3
+    }
+  
+    if (count == 4) {
+      divTodraw = timer4
+      color = color4
+    }
+    console.log(divTodraw);
+    // circle = new ProgressBar.Circle('#progress2',
+    var circle = new ProgressBar.Circle(divTodraw, {
+      strokeWidth: 15,
+      color: color,
+      duration: focusInput,
+      easing: 'linear'
+  });
+  timerCircles.push(circle);
+  circle.animate(1);
+  
+  }
 
 
 
@@ -173,6 +228,7 @@ function fadeOut(el){
 
 function fadeOutfast(el){
     el.style.opacity = 1;
+    console.log(el); 
   
     (function fade() {
       if ((el.style.opacity -= .1) < 0) {
@@ -187,6 +243,9 @@ function fadeOutfast(el){
 // fade in
 
 function fadeIn(el){
+el = timerDiv;
+  console.log('fadein');
+  console.log(el);
   el.style.opacity = 0;
   el.style.display = "block";
 
@@ -199,8 +258,27 @@ function fadeIn(el){
   })();
 }
 
-function fadeInstart(el){
+
+  function fadeInstart(){
     el = startButton;
+    console.log('fadeinstart');
+    console.log(el);
+    el.style.opacity = 0;
+    el.style.display = "block";
+  
+    (function fade() {
+      var val = parseFloat(el.style.opacity);
+      if (!((val += .1) > 1)) {
+        el.style.opacity = val;
+        setTimeout(fade, 40);
+      } 
+    })();
+  }
+
+  function fadeIntimerSet(){
+    el = timerSet;
+    console.log('fadeintimerset');
+    console.log(el);
     el.style.opacity = 0;
     el.style.display = "block";
   

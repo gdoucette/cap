@@ -1,4 +1,101 @@
+#password {
+    margin-bottom: 0px;
+}
 
-body {background-color: lightblue;
+
+
+body {background-color: #A3AF8C;
+    display: flex;
+    justify-content: center;
+    align-content: center;
+
 
 }
+
+.wrapper {	
+    display: flex;
+	margin-top: 80px;
+  margin-bottom: 80px;
+}
+
+.form-signin {
+  max-width: 380px;
+  padding: 15px 35px 45px;
+  margin: 0 auto;
+  background-color: #fff;
+  border: 1px solid rgba(0,0,0,0.1);  
+}
+
+.form-horizontal {
+
+    display: flex;
+    
+}
+
+
+#login {
+    justify-content: center;
+    align-content: center;
+}
+
+#register {
+    margin-top: 16px;
+    display: flex;
+    background-color: white;
+    justify-content: center;
+    align-content: center;
+    max-height: 500px;
+    min-width: 300px;
+}
+
+#helpblock {
+
+    margin-top: 0px;
+
+}
+
+#fieldset {
+
+    border: none;
+}
+
+#login {
+
+    max-height: 350px;
+}
+  .form-signin-heading,
+	.checkbox {
+      margin-bottom: 30px;
+      align-content: center;
+    }
+    
+
+	.checkbox {
+	  font-weight: normal;
+	}
+
+	.form-control {
+	  position: relative;
+	  font-size: 16px;
+	  height: auto;
+      padding: 10px;
+    }
+      
+
+    .control-group {
+
+        margin: 5px;
+    }
+	
+
+	input[type="text"] {
+	  margin-bottom: -1px;
+	  border-bottom-left-radius: 0;
+	  border-bottom-right-radius: 0;
+	}
+
+	input[type="password"] {
+	  margin-bottom: 20px;
+	  border-top-left-radius: 0;
+	  border-top-right-radius: 0;
+	}

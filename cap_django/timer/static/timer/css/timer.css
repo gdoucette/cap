@@ -1,14 +1,93 @@
 body {
+}
 
-    background-color: lightgray;
+#app {
+  /* background-color: #f2f2f2; */
+  border-style: solid;
+  margin-left: auto;
+  margin-right: auto;
+  width: 380px;
+  height: 520px;
 
 }
 
-.circles {
-    width: 300px;
-    height: 150px;
+#controlDiv {
+  margin-top: 15px;
+  margin-left: 10px;
+  margin-right: 10px;
+  display: grid;
+  grid-template-columns: 186px 186px;
+  grid-gap: 50px;
+  z-index: 100;
+  
 }
-.circles > svg {
-    height: 100%;
-    display: block;
+
+#timerDiv {
+  display: block;
+  margin: auto;
+
 }
+
+
+#buttondiv {
+  display: grid;
+} 
+
+.button {
+  width: 110px;
+
+}
+
+
+
+
+
+
+#timer1 {
+  
+  margin: auto;
+  position: absolute;
+  top: 0; left: 0; bottom: 0; right: 0;
+  width: 80%;
+  height: 80%;
+  z-index: 4; 
+  }
+
+  #timer2 {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    width: 80%;
+    height: 80%;
+    z-index: 6;  
+  }
+
+  #timer3 {
+    margin: auto;
+    position: absolute;
+    top: 0; left: 0; bottom: 0; right: 0;
+    width: 80%;
+    height: 80%;
+    z-index: 8;
+  
+  }
+
+  #timer4 {
+    margin-top: 65px;
+    margin-left: 6px;
+    margin-right: auto;
+    position: absolute;
+    z-index: 10;
+    
+    width: 368px;
+    height: 368px;
+    
+  }
+    
+    
+    
+
+      
+  
+
+

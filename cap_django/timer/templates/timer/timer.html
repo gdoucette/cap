@@ -8,54 +8,60 @@
     <title>Document</title>
     <link rel="stylesheet" href= '{% static "timer/css/timer.css" %}'>
 </head>
-<body>
-<div>
+<body id="body">
+
+<div id='app'>
 
 
-</div>
+<div id='controlDiv'>
 
+<div id='timerSet'>
+    <div id='focusSet'>  
+            Focus: <select onchange="focusSet(); return false" type="select" id="focusInput">
+                <option selected disabled hidden></option>
+                <option>15</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+             </select>
+ Minutes           
+    </div>
 
-
-<div id= "timers" >
-        <!-- <form action= "" onsubmit= "focusSet(); return false" > -->
-            Focus: <input type="number" id="focusInput">
-            <br>
-            <button id="focusSet">Enter</button>
-            <!-- <input type="submit" value="Enter"> -->
-</form>
-</div>
-
-<div>
-        <br>
+    <div id='breakSet'>
         Break: <select onchange="breakSet(); return false" type="select" id="breakInput">
             <option selected disabled hidden></option>
+            <option>1</option>
             <option>2</option>
             <option>3</option>
             <option>4</option>
             <option>5</option>
          </select>
+ Minutes</div>
 </div>
 
+            
+<div id='buttonDiv'>
+<button id="focusStart" class="button">Start Focus</button>   
 
-<br>
-<br>
 
 
-<div id="focusDiv"></div>
-<div id="breakDiv"></div>
-
-<br>
-<br>
-<div>
-        <button id="focusTimer">Start Focus</button>        
+<button id="strainedFocus" class="button">>_<</button>
+    </div>
 </div>
-<br>
 
-
-<div><button id="strainedFocus">Strained Focus</button></div>
-
-
-<div class='circles' id="circles"></div>
+<div id='timerDiv'>
+    <div class='container' id='timer4'>
+        <div class="container" id="timer3">
+            <div class='container' id='timer2'>
+                <div class="container" id="timer1">
+                    
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
 
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
@@ -89,7 +95,7 @@ $.ajaxSetup({
     }
 });
 </script>
-<script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.5.6/dist/progressbar.js"></script>
+<script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.9.0/dist/progressbar.js"></script>
 
 <script src="{% static 'timer/js/timer.js' %}"></script>  
 
