@@ -1,24 +1,23 @@
-{% load static %}
 
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
+<!-- saved from url=(0028)http://127.0.0.1:8000/timer/ -->
+<html lang="en"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href= '{% static "timer/css/timer.css" %}'>
+    <link rel="stylesheet" href="./Document_files/timer.css">
 </head>
 <body id="body">
 
-<div id='app'>
+<div id="app">
 
 
-<div id='controlDiv'>
+<div id="controlDiv">
 
-<div id='timerSet' class= "styled-select">
-    <div id='focusSet'>  
+<div id="timerSet" class="styled-select" style="opacity: 0.4; display: none;">
+    <div id="focusSet">  
             Focus:  <select onchange="focusSet(); return false" type="select" id="focusInput" class="minimal">
-                <option selected disabled hidden></option>
+                <option selected="" disabled="" hidden=""></option>
                 <option>15</option>
                 <option>2</option>
                 <option>3</option>
@@ -28,9 +27,9 @@
   Minutes           
     </div>
 
-    <div id='breakSet'>
+    <div id="breakSet">
         Break:  <select onchange="breakSet(); return false" type="select" id="breakInput">
-            <option selected disabled hidden></option>
+            <option selected="" disabled="" hidden=""></option>
             <option>1</option>
             <option>2</option>
             <option>3</option>
@@ -41,8 +40,8 @@
 </div>
 
             
-<div id='buttonDiv'>
-<button id="focusStart" class="button">Start Focus</button>   
+<div id="buttonDiv">
+<button id="focusStart" class="button" style="opacity: 0.4; display: none;">Start Focus</button>   
 
 
 
@@ -52,22 +51,21 @@
 </div>
 
 
-<div id='timerDiv'>
-    <div class='container' id='timer4'>
+<div id="timerDiv" style="opacity: 1; display: block;">
+    <div class="container" id="timer4">
         <div class="container" id="timer3">
-            <div class='container' id='timer2'>
+            <div class="container" id="timer2">
                 <div class="container" id="timer1">
-                    <button id="strainedFocus" >>_<</button>
-                </div>
-            </div>
+                    <button id="strainedFocus" class="button">&gt;_&lt;</button>
+                <svg viewBox="0 0 100 100" style="display: block; width: 100%;"><path d="M 50,50 m 0,-42.5 a 42.5,42.5 0 1 1 0,85 a 42.5,42.5 0 1 1 0,-85" stroke="#A3AF8C" stroke-width="15" fill-opacity="0" style="stroke-dasharray: 267.132, 267.132; stroke-dashoffset: 0;"></path></svg></div>
+            <svg viewBox="0 0 100 100" style="display: block; width: 100%;"><path d="M 50,50 m 0,-42.5 a 42.5,42.5 0 1 1 0,85 a 42.5,42.5 0 1 1 0,-85" stroke="#4DA1A9" stroke-width="15" fill-opacity="0" style="stroke-dasharray: 267.132, 267.132; stroke-dashoffset: 260.84;"></path></svg></div>
         </div>
     </div>
 </div>
 </div>
 
 
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+<script src="./Document_files/jquery.min.js"></script>
 <script>
     function getCookie(name) {
     var cookieValue = null;
@@ -98,10 +96,10 @@ $.ajaxSetup({
     }
 });
 </script>
-<script src="https://cdn.rawgit.com/kimmobrunfeldt/progressbar.js/0.9.0/dist/progressbar.js"></script>
+<script src="./Document_files/progressbar.js"></script>
 
-<script src="{% static 'timer/js/timer.js' %}"></script>  
+<script src="./Document_files/timer.js"></script>  
 
 
-</body>
-</html>
+
+</body></html>
