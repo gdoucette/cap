@@ -4,9 +4,15 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth.models import User
 from django.shortcuts import render, redirect
 from accounts.forms import SignUpForm
-
-
+from timer.models import StrainedFocus
 # Create your views here.
+
+# def getStrainedfocus(request):
+#     data = StrainedFocus.time_stamp
+#     return render(request, 'accounts/index.html', {'data': data})
+
+
+
 def index(request):
     return render(request, 'accounts/index.html')
 
