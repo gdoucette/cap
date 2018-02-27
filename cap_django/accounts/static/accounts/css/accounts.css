@@ -1,15 +1,4 @@
 
-#dataviz {
-
-    width: 150px;
-    height: 150px;
-}
-
-#datadiv {
-
-    width: 150px;
-    height: 150px;
-}
 
 
 #password {
@@ -18,13 +7,13 @@
 
 
 
-body {background-color: #A3AF8C;
+body {background-color: white;
     display: flex;
     justify-content: center;
     align-content: center;
 
 
-}
+} 
 
 .wrapper {	
     display: flex;

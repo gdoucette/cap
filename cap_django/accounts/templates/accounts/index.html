@@ -5,38 +5,43 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Document</title>
-    <link rel="stylesheet" href= '{% static "accounts/css/accounts.css" %}'>
+    <!-- <link rel="stylesheet" href= '{% static "accounts/css/accounts.css" %}'> -->
+    <link href='{% static "accounts/css/vis.css" %}'rel="stylesheet" type="text/css" />  
+    
+     
+
 
 </head>
-<body>
+<body id="fixed">
     <h2>Username: {{ user.username }}</h2>
     <br>
     <br>
 
-    <h2> Timestamp: {{ time_stamp }}</h2>
+    <!-- <h2> Timestamp: {{ time_stamp }}</h2>
     <br>
     <br>
-    <br>
+    <br> -->
 
     <!-- <h2>Objects.All(): {{ data }}</h2> -->
 
-    {% for i in user.timers.all %}
+    <!-- {% for i in user.timers.all %}
     {{i.start_time}}
     <ul>
         {% for s in i.strained_focus.all %}
         <li>{{ s.time_stamp}}</li>
         {% endfor %}
     </ul>
-    {% endfor %}
+    {% endfor %} -->
 
 
 
-
+    <script src="{% static 'accounts/js/vis.js' %}"></script>   
     <div id='datadiv'><button id="datavizbttn" class="button">Click</button>
     </div>
-    <canvas id="myChart"></canvas>
 
+    <div id="chart"></div>
     <script src="{% static 'accounts/js/dataviz.js' %}"></script>  
-
+    <script src="{% static 'accounts/js/vis.js' %}"></script>   
+    
 </body>
 </html>
