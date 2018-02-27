@@ -13,35 +13,50 @@
 
 </head>
 <body id="fixed">
-    <h2>Username: {{ user.username }}</h2>
-    <br>
-    <br>
+    <h2>{{ user.username }}</h2>
+  
 
-    <!-- <h2> Timestamp: {{ time_stamp }}</h2>
-    <br>
-    <br>
-    <br> -->
-
-    <!-- <h2>Objects.All(): {{ data }}</h2> -->
-
-    <!-- {% for i in user.timers.all %}
-    {{i.start_time}}
-    <ul>
-        {% for s in i.strained_focus.all %}
-        <li>{{ s.time_stamp}}</li>
-        {% endfor %}
-    </ul>
-    {% endfor %} -->
-
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="{% static 'accounts/js/vis.js' %}"></script>   
     <div id='datadiv'><button id="datavizbttn" class="button">Click</button>
     </div>
 
     <div id="chart"></div>
+    <script>
+        // using jQuery
+function getCookie(name) {
+    var cookieValue = null;
+    if (document.cookie && document.cookie !== '') {
+        var cookies = document.cookie.split(';');
+        for (var i = 0; i < cookies.length; i++) {
+            var cookie = jQuery.trim(cookies[i]);
+            // Does this cookie string begin with the name we want?
+            if (cookie.substring(0, name.length + 1) === (name + '=')) {
+                cookieValue = decodeURIComponent(cookie.substring(name.length + 1));
+                break;
+            }
+        }
+    }
+    return cookieValue;
+}
+var csrftoken = getCookie('csrftoken');
+
+
+function csrfSafeMethod(method) {
+    // these HTTP methods do not require CSRF protection
+    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+}
+$.ajaxSetup({
+    beforeSend: function(xhr, settings) {
+        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+            xhr.setRequestHeader("X-CSRFToken", csrftoken);
+        }
+    }
+});
+    
+    </script>
     <script src="{% static 'accounts/js/dataviz.js' %}"></script>  
-    <script src="{% static 'accounts/js/vis.js' %}"></script>   
     
 </body>
 </html>

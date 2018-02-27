@@ -11,7 +11,7 @@ from timer.models import StrainedFocus
 #     data = StrainedFocus.time_stamp
 #     return render(request, 'accounts/index.html', {'data': data})
 
-
+    
 
 def index(request):
     return render(request, 'accounts/index.html')

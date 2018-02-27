@@ -28,6 +28,6 @@ urlpatterns = [
     path('timer/end_time/', t_views.end_timer, name='end_time'),
     path('timer/strained_focus/', t_views.strained_focus, name='strained_focus'),
     path('accounts/', include('accounts.urls')),
-    path('accounts/index/', i_views.index, name="index")
-
+    path('accounts/index/', i_views.index, name="index"),
+    path('timeline/', t_views.timeline, name='timeline') 
 ]

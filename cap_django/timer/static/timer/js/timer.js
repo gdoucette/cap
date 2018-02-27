@@ -6,7 +6,7 @@ var id;
 //actual conversion
 // var minTomil = 60000;
 //test conversion
-var minTomil = 600;
+var minTomil = 60000;
 var running = false;
 var circleDiv = document.getElementById('circles')
 var startButton = document.getElementById('focusStart')

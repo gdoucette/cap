@@ -24,9 +24,9 @@ def start_timer(request):
 def end_timer(request):
     if request.method == 'POST': 
         timer = Timer.objects.get(pk=request.POST.get('timer_id'))
-        end_timer = timezone.now()
+        timer.end_timer = timezone.now()
         timer.save()
-        return JsonResponse({'Message': 'success', 'timer_end': end_timer, 'timer_id': timer.pk})
+        return JsonResponse({'Message': 'success', 'timer_end': timer.end_timer, 'timer_id': timer.pk})
     return JsonResponse({'Message': 'Fail: Must be post'})
 
 
@@ -38,3 +38,16 @@ def strained_focus(request):
         sf.save()
         return JsonResponse({'Message': 'success', 'strained_focus': str(sf.time_stamp), 'timer_id': sf.timer.pk})
     return JsonResponse({'Message': 'Fail: Must be post'})
+
+
+def timeline(request):
+    js = []
+    for t in request.user.timers.all():
+        js.append(
+            {'id': t.id, 'content': str(t.id), 'start': str(t.start_time), 'end': str(t.end_timer)}
+        )
+        for s in t.strained_focus.all():
+            js.append(
+                {'id': s.id, 'content': 'Mark', 'start': s.time_stamp}
+            )
+    return JsonResponse({'timer': js}, safe=True)
