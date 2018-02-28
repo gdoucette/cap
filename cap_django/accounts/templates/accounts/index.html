@@ -19,8 +19,7 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
     <script src="{% static 'accounts/js/vis.js' %}"></script>   
-    <div id='datadiv'><button id="datavizbttn" class="button">Click</button>
-    </div>
+    
 
     <div id="chart"></div>
     <script>
@@ -43,17 +42,7 @@ function getCookie(name) {
 var csrftoken = getCookie('csrftoken');
 
 
-function csrfSafeMethod(method) {
-    // these HTTP methods do not require CSRF protection
-    return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
-}
-$.ajaxSetup({
-    beforeSend: function(xhr, settings) {
-        if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
-            xhr.setRequestHeader("X-CSRFToken", csrftoken);
-        }
-    }
-});
+
     
     </script>
     <script src="{% static 'accounts/js/dataviz.js' %}"></script>  

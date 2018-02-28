@@ -1,4 +1,4 @@
-
+var speed = 'test'
 var focusInput;
 var breakInput;
 var count = 0;
@@ -11,7 +11,7 @@ var running = false;
 var circleDiv = document.getElementById('circles')
 var startButton = document.getElementById('focusStart')
 var strainButton = document.getElementById('strainedFocus')
-
+// var speedSwitch = document.getElementById('speedSwitch')
 var timer1 = document.getElementById('timer1')
 var timer2 = document.getElementById('timer2')
 var timer3 = document.getElementById('timer3')
@@ -22,6 +22,31 @@ var color1 = '#A3AF8C'
 var color2 = '#4DA1A9'
 var color3 = '#2E5077'
 var color4 = '#611C35'
+
+document.querySelector('#speedSwitch').addEventListener('change', function(){
+  event.preventDefault();
+  speedSwitch();
+})
+
+function speedSwitch() {
+  
+  if (speed == 'test') {
+    console.log('Speed: Real');
+    speed = 'real';
+    minTomil = 60000; 
+    return minTomil
+  }
+
+  else if (speed == 'real') {
+    console.log('Speed: Fast');
+    speed = 'test';
+    minTomil = 600;
+    return minTomil;
+  }
+
+
+
+}
 
 
 var timerCircles = [];
@@ -34,15 +59,11 @@ function focusSet() {
 }
 
 
-// document.querySelector('#focusSet').addEventListener('input', function(){
-//     event.preventDefault();
-//     focusSet()
-// })
+
 
 function breakSet() {
 
     breakInput = parseInt(document.getElementById('breakInput').value);
-    //document.getElementById("breakDiv").innerHTML ="Break Time: " + breakInput + " minutes";
     breakInput = breakInput * minTomil;
     console.log(breakInput);
 } 
@@ -92,12 +113,10 @@ function focusTimer() {
     
 }}
 
-// function longBreakTimer () {
-//     setTimeout(longBreakTimer, 1000)
-// }
+
 
 function breakTimer() {
-  // s
+
     setTimeout(breakEnd, breakInput);
     
 
@@ -106,7 +125,6 @@ function breakTimer() {
 
 
 function longBreakTimer() {
-  // fadeOutfast(strainButton);
     fadeOut(timerDiv);
     setTimeout(fadeIntimerSet, 3500);
     setTimeout(fadeInstart, 3800);
@@ -117,7 +135,7 @@ function longBreakTimer() {
 }
 
 function focusEnd() {
-    // running = false;
+    running = false;
     $.ajax({
         url: "/timer/end_time/", 
         type: 'post',
@@ -173,10 +191,7 @@ function clear() {
     timerCircles.forEach(function(ob, i){
         ob.destroy();
       })
-      timerCircles = [];
-    // document.getElementById('timerDiv').innerHTML = '<div class="container" id="timer4"> <div class="container" id="timer3"> <div class="container" id="timer2"> <div class="container" id="timer1"> </div> </div> </div> </div>';
-    // document.getElementById('timer3').innerHTML = "";
-    // document.getElementById('timer4').innerHTML = "";
+      timerCircles = []; 
 }
 
 
@@ -297,20 +312,5 @@ el = timerDiv;
     })();
   }
 
-  function fadeInstrain(){
-    el = strainButton;
-    console.log('fadeintstrained');
-    console.log(el);
-    el.style.opacity = 0;
-    el.style.display = "block";
-  
-    (function fade() {
-      var val = parseFloat(el.style.opacity);
-      if (!((val += .1) > 1)) {
-        el.style.opacity = val;
-        setTimeout(fade, 40);
-      } 
-    })();
-  }
-  
+ 
 

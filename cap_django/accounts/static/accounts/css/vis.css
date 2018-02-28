@@ -10,6 +10,12 @@ width: 600px;
 
 }
 
+/* 
+.vis-item-content {
+
+  background-clip: 
+} */
+
 .vis .overlay {
   position: absolute;
   top: 0;
