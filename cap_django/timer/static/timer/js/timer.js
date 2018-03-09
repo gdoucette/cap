@@ -11,7 +11,6 @@ var running = false;
 var circleDiv = document.getElementById('circles')
 var startButton = document.getElementById('focusStart')
 var strainButton = document.getElementById('strainedFocus')
-// var speedSwitch = document.getElementById('speedSwitch')
 var timer1 = document.getElementById('timer1')
 var timer2 = document.getElementById('timer2')
 var timer3 = document.getElementById('timer3')
@@ -53,7 +52,6 @@ var timerCircles = [];
 function focusSet() {
 
     focusInput = parseInt(document.getElementById('focusInput').value);
-    //document.getElementById("focusDiv").innerHTML = "Focus Time: " + focusInput + " minutes";
     focusInput = focusInput * minTomil;
     console.log(focusInput);
 }
@@ -90,7 +88,7 @@ function focusTimer() {
     running = true;
     fadeOutfast(startButton);
     fadeOutfast(timerSet);
-    // fadeInstrain();   
+      
 
     console.log(running);
     setTimeout(focusEnd, focusInput); 
@@ -219,7 +217,6 @@ function clear() {
       color = color4
     }
     console.log(divTodraw);
-    // circle = new ProgressBar.Circle('#progress2',
     var circle = new ProgressBar.Circle(divTodraw, {
       strokeWidth: 15,
       color: color,

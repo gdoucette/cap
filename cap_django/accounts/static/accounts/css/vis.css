@@ -1,11 +1,18 @@
-html, body {margin: 0; max-height: 600px; overflow: hidden}
+html, body {
+  margin: 0; 
+  max-height: 600px; 
+  overflow: hidden;
+  background-color: #f0f0f0}
 
 
 
 #chart {
+  
+  background-color: white;
 margin: auto;
 height: 300px;
 width: 600px;
+margin-top: 100px;
 
 
 }
@@ -740,10 +747,11 @@ div.vis-network div.vis-navigation div.vis-button.vis-zoomExtends {
     right:15px;
 }
 .vis-timeline {
-  /*
+  background-color: white;
+  border: solid 5px;
   -webkit-transition: height .4s ease-in-out;
   transition:         height .4s ease-in-out;
-  */
+  
 }
 
 .vis-panel {
